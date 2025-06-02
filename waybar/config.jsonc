@@ -32,7 +32,7 @@
         "format": "stats",
         "format-alt": "{text}",
         "return-type": "json",
-        "exec": "source ~/dotfiles/waybar/.venv/bin/activate; ~/dotfiles/waybar/clock.py"
+        "exec": "source ~/dotfiles/.venv/bin/activate; ~/dotfiles/waybar/clock.py"
     },
     // Modules configuration
     "keyboard-state": {
