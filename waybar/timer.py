@@ -1,17 +1,18 @@
 import sys
 import time
-import json
 import datetime
 import os
-# f = open(os.getenv("HOME")+"/dotfiles/waybar/targetTime.json")
+
 while True:
-    now=datetime.datetime.now()
     with open(os.getenv("HOME")+"/dotfiles/waybar/targetTime.json") as f:
-        target=json.loads(f.read())
+        target=int(float(f.read())-time.time())
 
 
-    if int(f'{target["hour"]:02}{target["minute"]:02}{target["second"]:02}')>int(f'{now.hour+2:02}{now.minute:02}{now.second:02}'):
-        formatted=f'{((target["hour"]-now.hour)-3)%24}:{(target["minute"]-now.minute)%60}:{(target["second"]-now.second) %60}\n'
+    if target>0:
+        hour=target//3600
+        minute=(target%3600)//60
+        second=target%60
+        formatted=f'{hour:02}:{minute:02}:{second:02}\n'.replace("00:","",1)
         sys.stdout.write(formatted)
     else:
         sys.stdout.write("Timer\n")

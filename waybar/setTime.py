@@ -1,21 +1,12 @@
 import json
 import os
+import time
 import datetime
 now=datetime.datetime.now()
-h=int(input("h: "))
-m=int(input("m: "))
 
+timeobj=datetime.datetime.replace(now,hour=int(input("h: "))-2,minute=int(input("m: ")),second=0)
 
-if h<now.hour:
-    date=now.day+1
-else:
-    date=now.day
-
-out={
-    "hour": h,
-    "minute": m,
-    "second": 0
-}
+out=timeobj.timestamp()
 with open(os.getenv("HOME")+"/dotfiles/waybar/targetTime.json","w") as f:
-    json.dump(out,f)
+    f.write(str(out))
 
