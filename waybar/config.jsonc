@@ -1,14 +1,16 @@
 // -*- mode: jsonc -*-
 {
+    
     "reload_style_on_change": true,
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 37, // Waybar height (to be removed for auto height)
+    "height": 0, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "clock"
+        "clock",
+        "custom/timer"
     ],
     "modules-center": [
         "hyprland/workspaces",
@@ -18,11 +20,7 @@
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        // "cpu",
-        // "memory",
-        // "temperature",
         "backlight",
-        //"keyboard-state",//
         "battery",
         "tray",
         "custom/power",
@@ -32,7 +30,15 @@
         "format": "stats",
         "format-alt": "{text}",
         "return-type": "json",
-        "exec": "source ~/dotfiles/.venv/bin/activate; ~/dotfiles/waybar/clock.py"
+        "exec": "source ~/dotfiles/.venv/bin/activate; ~/dotfiles/waybar/stats.py"
+    },
+
+    // custom timer module
+    "custom/timer": {
+        "format": "{}",
+        // "return-type": "json",
+        "on-click": "kitty python ~/dotfiles/waybar/setTime.py",
+        "exec": "python ~/dotfiles/waybar/timer.py"
     },
     // Modules configuration
     "keyboard-state": {
@@ -166,7 +172,7 @@
         "format" : "⏻ ",
 		"tooltip": false,
 		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-file": "$HOME/dotfiles/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {
 			"shutdown": "systemctl poweroff",
 			"reboot": "reboot",

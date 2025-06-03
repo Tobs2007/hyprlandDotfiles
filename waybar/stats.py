@@ -26,7 +26,7 @@ while True:
         mtemp=round(max(temps),1)
         
         text=f"C: {cpu_percent()}%  M: {mem}%  : {mtemp}°C"
-        text=f'<span background="#00a030"> {text} </span>'
+        text=f'{text}'
         output={"text": text}
         stdout.write(dumps(output)+"\n")
         stdout.flush()
