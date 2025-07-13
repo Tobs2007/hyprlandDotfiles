@@ -2,8 +2,8 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 10px;
-    border-radius: 5px;
-    padding: 2px;
+    border-radius: 2px;
+    /* padding: 2px; */
     padding-left: 6px;
     padding-right: 6px;
     

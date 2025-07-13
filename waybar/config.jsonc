@@ -13,8 +13,8 @@
         "custom/timer"
     ],
     "modules-center": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
+        // "hyprland/window"
     ],
     "modules-right": [
         "idle_inhibitor",
@@ -96,7 +96,7 @@
         "timezone": "Europe/Berlin",
         // "format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
         "format": "{:%H:%M}",
-        "format-alt": "{:}"
+        "format-alt": "{:%Y-%m-%d %H:%M}"
     },
     
         // "format-icons": ["", "", ""]
@@ -154,7 +154,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
     },
     "custom/media": {
         "format": "{icon} {text}",
