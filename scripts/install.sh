@@ -1,7 +1,7 @@
 #!/bin/bash
 echo installing hyprland
 cd ~
-sudo pacman -S python3 wofi waybar hyprland kitty code hyprpaper hyprshot cron cronie git
+sudo pacman -S python3 wofi waybar hyprland kitty code hyprpaper hyprshot cron cronie git cargo pkg-config
 sudo systemctl enable cronie
 
 git clone https://github.com/Tobs2007/hyprlandDotfiles.git dotfiles
@@ -23,5 +23,3 @@ cd eww
 cargo build --release --no-default-features --features=wayland
 chmod +x ./target/release/eww
 echo "alias eww='~/eww/target/release/eww'" >> ~/.bashrc
-(crontab -l 2>/dev/null; echo "@reboot ~/eww/target/release/eww daemon") | crontab -
-
