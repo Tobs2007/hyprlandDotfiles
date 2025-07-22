@@ -1,13 +1,27 @@
 #!/bin/bash
 echo installing hyprland
 cd ~
-wget -r https://tobsstuff.com/data/dotfiles
-mkdir ~/.config/hypr
-cd ~/.config/hypr
-wget https://tobsstuff.com/data/dotfiles/hypr/redirect/hyprland.config
+sudo pacman -S python3 wofi waybar hyprland kitty code hyprpaper hyprshot cron cronie git
+sudo systemctl enable cronie
 
-sudo pacman -S python3 wofi waybar hyprland kitty code hyprpaper hyprshot
-echo export XDG_CONFIG_HOME=~/dotfiles/ > ~/.bashrc
+git clone https://github.com/Tobs2007/hyprlandDotfiles.git dotfiles
+mkdir ~/.config/hypr
+cp ~/dotfiles/hypr/redirect/hyprland.config ~/.config/hypr
+
+# set dotfiles as config root
+echo export XDG_CONFIG_HOME=~/dotfiles/ >> ~/.bashrc
+
+# setup python venv for the waybar infos
 python -m venv ~/dotfiles/.venv
 source ~/dotfiles/.venv/bin/activate
 pip install psutil
+
+# install eww
+cd ~
+git clone https://github.com/elkowar/eww
+cd eww
+cargo build --release --no-default-features --features=wayland
+chmod +x ./target/release/eww
+echo "alias eww='~/eww/target/release/eww'" >> ~/.bashrc
+(crontab -l 2>/dev/null; echo "@reboot ~/eww/target/release/eww daemon") | crontab -
+

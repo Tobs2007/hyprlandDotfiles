@@ -4,6 +4,7 @@
 !/kitty/
 !/hypr/
 !/scripts/
+!/eww/
 !/.gitignore
 !/README.md
 **/targetTime.json
