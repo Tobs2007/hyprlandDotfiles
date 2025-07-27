@@ -10,7 +10,8 @@
     // Choose the order of the modules
     "modules-left": [
         "clock",
-        "custom/timer"
+        "custom/timer",
+        "custom/media"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -23,7 +24,7 @@
         "backlight",
         "battery",
         "tray",
-        "custom/power",
+        "custom/ewwpower",
         "custom/combinedStats"
     ],
     "custom/combinedStats": {
@@ -157,19 +158,20 @@
         "on-click": "pwvucontrol"
     },
     "custom/media": {
-        "format": "{icon} {text}",
+        "format": "{text}",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 80,
+        "on-click": "playerctl play-pause",
         "format-icons": {
             "spotify": "",
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/dotfiles/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        "exec": "$HOME/dotfiles/waybar/mediaplayer.py"// 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/dotfiles/waybar/power_menu.xml", // Menu file in resources folder
@@ -179,5 +181,9 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
+    },
+    "custom/ewwpower": {
+        "format": "⏻",
+        "on-click": "sleep .1; ~/eww/target/release/eww open power"
     }
 }

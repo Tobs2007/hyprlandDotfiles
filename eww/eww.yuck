@@ -11,3 +11,27 @@
   :stacking "fg"
   :geometry (geometry :x "8px" :y "32px" :width "250px" :anchor "bottom right")
   (activate-linux))
+
+
+(defwindow power
+  :monitor 0
+  :geometry (geometry 
+    :x "20px"
+    :y "20px"
+    :anchor "top right")
+    
+  :stacking "fg"
+  :windowtype "dock"
+
+  (powerOption)
+  )
+
+
+(defwidget powerOption []
+  (box 
+    :orientation "vertical"
+    (button :onclick "systemctl poweroff" "Shutdown")
+    (button :onclick "systemctl suspend" "Suspend")
+    (button :onclick "systemctl hibernate" "Hibernate")
+    (button :onclick "reboot" "Reboot")
+  ))
