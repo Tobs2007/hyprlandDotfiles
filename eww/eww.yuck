@@ -35,3 +35,15 @@
     (button :onclick "systemctl hibernate" "Hibernate")
     (button :onclick "reboot" "Reboot")
   ))
+
+(defwindow fps
+  :monitor 0
+  :geometry (geometry 
+    :x "20px"
+    :y "20px"
+    :anchor "top left")
+    
+  :stacking "fg"
+
+  (label :xalign 0 :markup "<span font_size=\"large\">Activate Linux</span>")
+  )
