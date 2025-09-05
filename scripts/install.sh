@@ -9,7 +9,8 @@ mkdir ~/.config/hypr
 cp ~/dotfiles/hypr/redirect/hyprland.config ~/.config/hypr
 
 # set dotfiles as config root
-echo export XDG_CONFIG_HOME=~/dotfiles/ >> ~/.bashrc
+echo "[[ -f ~/dotfiles/scripts/.bash_profile ]] && source ~/dotfiles/scripts/.bash_profile" >> ~/.bash_profile
+echo "[[ -f ~/dotfiles/scripts/.bashrc ]] && source ~/dotfiles/scripts/.bashrc" >> ~/.bashrc
 
 # setup python venv for the waybar infos
 python -m venv ~/dotfiles/.venv
