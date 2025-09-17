@@ -21,8 +21,8 @@
         "idle_inhibitor",
         "pulseaudio",
         "network",
-        //"backlight",
-        //"battery",
+        "backlight",
+        "battery",
         "tray",
         "custom/ewwpower",
         "custom/combinedStats"
