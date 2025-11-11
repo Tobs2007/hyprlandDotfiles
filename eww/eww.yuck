@@ -47,3 +47,22 @@
 
   (label :xalign 0 :markup "<span font_size=\"large\">Activate Linux</span>")
   )
+
+(defvar foo "calculator")
+(defwindow calc
+  :monitor 0
+  :geometry (geometry :anchor "center center"
+  :width "600px"
+  :height "30px")
+  :windowtype "dialog"
+  :stacking "fg"
+  :wm-ignore false
+  :focusable true
+  (box
+    :orientation "vertical"
+    (input
+      :onchange "${EWW_CMD} update foo=\"$(~/dotfiles/eww/calculator.py '{}')\""
+      :onaccept "${EWW_CMD} close calc")
+      (label :xalign 0 :text foo)
+  )
+)
