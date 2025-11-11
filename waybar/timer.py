@@ -1,12 +1,14 @@
+#pyright: reportUnusedCallResult=false
 import sys
 import time
-import datetime
 import os
-if "targetTime.json" not in os.listdir(os.getenv("HOME")+"/dotfiles/waybar/"):
-    with open(os.getenv("HOME")+"/dotfiles/waybar/targetTime.json","w") as f:
-        f.write("0")
+home = os.getenv("HOME") or "/"
+
+if "targetTime.json" not in os.listdir(home+"/dotfiles/waybar/"):
+    with open(home+"/dotfiles/waybar/targetTime.json","w") as f:
+        f.write("0")  
 while True:
-    with open(os.getenv("HOME")+"/dotfiles/waybar/targetTime.json") as f:
+    with open(home+"/dotfiles/waybar/targetTime.json") as f:
         target=int(float(f.read())-time.time())
 
 

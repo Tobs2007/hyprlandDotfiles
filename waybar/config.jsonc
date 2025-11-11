@@ -11,13 +11,15 @@
     "modules-left": [
         "clock",
         "custom/timer",
+        "custom/dhcpip",
         "custom/media"
     ],
     "modules-center": [
-        "hyprland/workspaces"
-        // "hyprland/window"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-right": [
+        "power-profiles-daemon",
         "idle_inhibitor",
         "pulseaudio",
         "network",
@@ -39,7 +41,11 @@
         "format": "{}",
         // "return-type": "json",
         "on-click": "kitty python ~/dotfiles/waybar/setTime.py",
-        "exec": "python ~/dotfiles/waybar/timer.py"
+        "exec": "~/dotfiles/waybar/timer"
+    },
+    "custom/dhcpip": {
+        "format": "{}",
+        "exec": "~/dotfiles/waybar/dhcpip"
     },
     // Modules configuration
     "keyboard-state": {
